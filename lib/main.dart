@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -22,21 +23,21 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.indigo,
-          foregroundColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 15, 31, 122),
+          foregroundColor: Color.fromARGB(255, 46, 46, 46),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.indigo, // background (button) color
+            backgroundColor: const Color.fromARGB(255, 24, 38, 118), // background (button) color
             foregroundColor: Colors.white, // foreground (text) color
           ),
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.indigo, // background (button) color
+          backgroundColor:  Color.fromARGB(255, 24, 38, 118), // background (button) color
           foregroundColor: Colors.white, // foreground (text) color
         ),
       ),

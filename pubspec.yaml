@@ -17,6 +17,9 @@ dependencies:
   firebase_core: ^2.31.1
   firebase_ui_auth: ^1.14.0
   firebase_auth: ^4.19.6
+  cloud_firestore: ^4.17.4
+  faker: ^2.1.0
+  firebase_ui_firestore: ^1.6.3
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +28,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+
+fonts:
+  - family: SocialIcons
+    fonts:
+      - asset: packages/firebase_ui_auth/fonts/SocialIcons.ttf
