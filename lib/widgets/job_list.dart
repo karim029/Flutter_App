@@ -11,9 +11,19 @@ class JobsListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final firestoreRepository = ref.read(firestoreRepositoryProvider);
+    final firestoreRepository = ref.watch(firestoreRepositoryProvider);
+    final user = ref.read(firebaseAuthProvider).currentUser;
+
     return FirestoreListView<Job>(
-      query: firestoreRepository.jobsQuery(),
+      query: firestoreRepository.jobsQuery(user!.uid),
+      errorBuilder: (context, error, stackTrace) {
+        return Center(
+          child: Text(error.toString()),
+        );
+      },
+      emptyBuilder: (context) => const Center(
+        child: Text('No data.'),
+      ),
       itemBuilder: (context, doc) {
         final job = doc.data();
         return Dismissible(

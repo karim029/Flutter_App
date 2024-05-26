@@ -13,8 +13,7 @@ class FirestoreRepository {
           {required String uid,
           required String title,
           required String company}) =>
-      _firestore.collection('jobs').add({
-        'uid': uid,
+      _firestore.collection('users/$uid/jobs').add({
         'title': title,
         'company': company,
       });
@@ -24,18 +23,17 @@ class FirestoreRepository {
           required String jobId,
           required String title,
           required String company}) =>
-      _firestore.doc('jobs/$jobId').update({
-        'uid': uid,
+      _firestore.doc('users/$uid/jobs/$jobId').update({
         'title': title,
         'company': company,
       });
 
   Future<void> deleteJob(String uid, String jobId) {
-    return _firestore.doc('jobs/$jobId').delete();
+    return _firestore.doc('users/$uid/jobs/$jobId').delete();
   }
 
-  Query<Job> jobsQuery() {
-    return _firestore.collection('jobs').withConverter(
+  Query<Job> jobsQuery(String uid) {
+    return _firestore.collection('users/$uid/jobs').withConverter(
           fromFirestore: (snapshot, options) => Job.fromMap(snapshot.data()!),
           toFirestore: (job, options) => job.toMap(),
         );
