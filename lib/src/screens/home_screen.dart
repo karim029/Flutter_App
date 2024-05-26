@@ -1,11 +1,11 @@
-import 'package:faker/faker.dart';
+import 'package:faker/faker.dart' hide Job;
 import 'package:faker_app_flutter_firebase/src/data/firestore_repository.dart';
 import 'package:faker_app_flutter_firebase/src/routing/app_router.dart';
 import 'package:faker_app_flutter_firebase/widgets/job_list.dart';
-import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:faker_app_flutter_firebase/src/data/job.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
